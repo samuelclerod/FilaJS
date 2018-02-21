@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/semantic.min.css">
+    <script src="lib/jquery-3.1.1.min.js"></script>
+    <script src="lib/semantic.min.js"></script>
+    <script src="js/queue.js"></script>
+    <script src="js/main.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="ui container" style="margin:auto;width:600px;">
+        <h2>Projeto Fila</h2>
+        <div class="ui center aligned padded segment">
+            <div class="ui input">
+                <input placeholder="Item a ser inserido" type="text" name="item" id="item" />
+            </div>
+            <div class="ui buttons">
+                <button class="ui button" id="enqueue">enfileirar</button>
+                <button class="ui button" id="dequeue">desenfileirar</button>
+                <button class="ui button" id="clear">limpar</button>
+            </div>
+        </div>
+        <div class="cented column">
+            <div class="ui segment">
+                <a class="ui ribbon label">Fila</a>
+                <div class="ui center aligned container">
+                    <span class="ui right pointing  basic label">inicio</span>
+                    <span id="output"></span>
+                    <span class="ui left pointing  basic label">fim</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html
