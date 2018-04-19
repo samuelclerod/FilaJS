@@ -1,4 +1,4 @@
-var queue = new Queue();
+var queue = new StaticQueue();
 $().ready(function() {
 
     $('#enqueue').on('click', enqueueElement);
