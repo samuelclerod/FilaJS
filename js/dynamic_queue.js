@@ -1,6 +1,5 @@
 class DynamicQueue{
     constructor(){
-        this.items = [];
     }
     enqueue(element) {}
     dequeue(){}
