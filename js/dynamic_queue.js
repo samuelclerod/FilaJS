@@ -43,5 +43,14 @@ class DynamicQueue{
     clear() {
         this.tail=this.head= null;
     }
-    print(separator=" - ") {}
+    print(separator=" - ") {
+        if(!this.head) return "";
+        let s = this.head.element,
+            current = this.head.next;
+            while(current){
+                s+= separator + current.element;
+                current = current.next;
+            }
+            return s;
+    }
 }
