@@ -1,4 +1,5 @@
-var queue = new StaticQueue();
+//github.com/samuelclerod/FilaJS
+var queue = new DynamicQueue();
 $().ready(function() {
 
     $('#enqueue').on('click', enqueueElement);
@@ -31,6 +32,7 @@ function dequeueElement() {
 function clearQueue() {
     queue.clear();
     showQueue();
+    $('#item').val('');
 }
 
 function showQueue() {
