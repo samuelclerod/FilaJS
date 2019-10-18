@@ -1,6 +1,5 @@
 var queue = new Queue();
 $().ready(function() {
-
     $('#enqueue').on('click', enqueueElement);
     $('#item').keydown(function(e) {
         //verify if enter was pressed
