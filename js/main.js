@@ -1,4 +1,4 @@
-var queue = new Queue();
+var queue = new StaticQueue();
 $().ready(function() {
     $('#enqueue').on('click', enqueueElement);
     $('#item').keydown(function(e) {
@@ -19,11 +19,11 @@ function enqueueElement() {
 }
 
 function dequeueElement() {
-    if (queue.isEmpty() == false) {
+    if (queue.isEmpty()) {
+        alert('Fila Vazia');
+    } else {
         alert('Foi removido o elemento ' + queue.dequeue());
         showQueue();
-    } else {
-        alert('Fila Vazia');
     }
 }
 
