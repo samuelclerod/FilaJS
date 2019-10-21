@@ -1,21 +1,58 @@
 class StaticQueue{
 
-    constructor(){}
+    constructor(){
+        this.data = new Array(20);
+        this.count = 0
+    }
 
-    enqueue(element){}
+    enqueue(element){
+        this.data[this.count]=element;
+        this.count++;
+    }
 
-    dequeue(){}
+    dequeue(){
+        if(this.count>0){
+            this.count--;
+            return this.data.shift();
+        }
+        return null;
+    }
 
-    front(){}
+    front(){
+        return this.data[0];
+    }
 
-    back(){}
+    back(){
+        return this.data[this.count-1]
+    }
 
-    isEmpty(){}
+    isEmpty(){
+        return this.count==0
+    }
 
-    size(){}
+    size(){
+        return this.count;
+    }
 
-    clear(){}
+    clear(){
+        this.count=0
+    }
 
-    print(separator=''){}
+    print(separator=''){
+        let output = '';
+        for(let i = 0; i<this.count; i++)
+            output+=this.data[i]+separator;
+        return output.substr(0, output.length-separator.length);
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
