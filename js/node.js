@@ -1,4 +1,5 @@
-class Node{
-    constructor(element){
+class Node {
+    constructor(element) {
     }
+
 }

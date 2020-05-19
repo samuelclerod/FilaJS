@@ -1,9 +1,10 @@
 var queue = new StaticQueue();
-$().ready(function() {
+$().ready(function () {
 
     $('#enqueue').on('click', enqueueElement);
-    $('#item').keydown(function(e) {
-        //verify if enter was pressed
+    $('#item').keydown(function (e) {
+        //verifica que a tecla enter foi pressionada
+        // outros key codes ~> https://keycode.info/
         if (e.which == 13) enqueueElement();
     });
     $('#dequeue').on('click', dequeueElement);
