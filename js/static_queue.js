@@ -38,4 +38,5 @@ class StaticQueue {
             return text.substring(0, text.length - separator.length)
         return text
     }
+
 }
