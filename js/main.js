@@ -1,14 +1,32 @@
 var queue = new StaticQueue();
-$().ready(function() {
+$().ready(function () {
 
     $('#enqueue').on('click', enqueueElement);
-    $('#item').keydown(function(e) {
+    $('#item').keydown(function (e) {
         //verify if enter was pressed
         if (e.which == 13) enqueueElement();
     });
     $('#dequeue').on('click', dequeueElement);
     $('#clear').on('click', clearQueue);
+    $('#clear').on('click', clearQueue);
+    $('#errorBox').on('click', hideMessages);
+    $('#message').on('click', hideMessages);
+    $('#item').on('focus', hideMessages)
 });
+function hideMessages() {
+    $('#errorBox').slideUp();
+    $('#message').slideUp();
+}
+
+function showErrorMessage(message) {
+    $('#errorBox p').html(message);
+    $('#errorBox').slideDown();
+}
+
+function showMessage(message) {
+    $('#message').html(message);
+    $('#message').slideDown();
+}
 
 function enqueueElement() {
     var item = $('#item').val();
@@ -20,11 +38,14 @@ function enqueueElement() {
 }
 
 function dequeueElement() {
-    if (queue.isEmpty() == false) {
-        alert('Foi removido o elemento ' + queue.dequeue());
+    hideMessages();
+    try {
         showQueue();
-    } else {
-        alert('Fila Vazia');
+        const removedElement = queue.dequeue();
+        showMessage('Foi removido o elemento ' + removedElement);
+    } catch (error) {
+        showQueue();
+        showErrorMessage(error.message);
     }
 }
 
@@ -34,7 +55,8 @@ function clearQueue() {
 }
 
 function showQueue() {
-    $('#output').empty();
-    $('#output').append('<div class="ui label">' +
-        queue.print('</div><div class="ui label">') + '</div></div>');
+    $('#output').html('<div class="ui label">' +
+        queue.print('</div><div class="ui label">') +
+        '</div></div>');
+
 }
