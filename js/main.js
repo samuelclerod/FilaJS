@@ -1,4 +1,4 @@
-var queue = new StaticQueue();
+var queue = new DynamicQueue();
 $().ready(function () {
 
     $('#enqueue').on('click', enqueueElement);
@@ -40,23 +40,22 @@ function enqueueElement() {
 function dequeueElement() {
     hideMessages();
     try {
+        showMessage('Foi removido o elemento ' + queue.dequeue());
         showQueue();
-        const removedElement = queue.dequeue();
-        showMessage('Foi removido o elemento ' + removedElement);
     } catch (error) {
-        showQueue();
         showErrorMessage(error.message);
     }
 }
 
 function clearQueue() {
+    hideMessages();
     queue.clear();
     showQueue();
 }
 
 function showQueue() {
-    $('#output').html('<div class="ui label">' +
-        queue.print('</div><div class="ui label">') +
-        '</div></div>');
-
+    let outputHTML = queue.print('</div><div class="ui label">')
+    if (outputHTML.length > 0)
+        outputHTML = `<div class="ui label">${outputHTML}</div>`;
+    $('#output').html(outputHTML);
 }
